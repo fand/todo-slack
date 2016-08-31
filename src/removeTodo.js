@@ -1,12 +1,16 @@
 'use strict';
 var fetchSlack = require('./fetchSlack');
+var f2s = require('./f2s');
 var dedent = require('dedent');
 
 function removeTodo (title) {
   fetchSlack('files.list', { types: 'spaces' })
   .then(r => r.json())
-  .then((res) => {
-    return res.files.filter((f) => f.title.match(title));
+  .then(r => r.files)
+  .then(files => {
+    var matched = files.find(f => f.title === title);
+    if (matched) { return [matched]; }
+    return files.filter(f => f.title.match(title));
   })
   .then(files => {
     if (files.length === 0) {
@@ -16,7 +20,7 @@ function removeTodo (title) {
       throw dedent`
         Multiple TODOs matched title: "${title}".
 
-        ${files.map(f => `- ${f.title}`).join('\n')}
+        ${files.map(f2s).join('\n')}
 
         Please specify unique pattern.
       `;
@@ -32,7 +36,10 @@ function removeTodo (title) {
       if (!r.ok) { throw res.error; }
     })
     .then(() => {
-      console.log(`Removed TODO: ${file.title}`);
+      console.log(dedent`
+        Removed TODO:
+        ${f2s(file)}
+      `);
     });
   })
   .catch((e) => {
