@@ -1,5 +1,10 @@
 # @fand/todo-slack
 
+![todo](https://cloud.githubusercontent.com/assets/1403842/18138910/f3db878a-6fe9-11e6-89b1-630da285c555.png)
+
+> Todo app using Slack file upload API
+
+
 ## Install
 
 ```
@@ -17,15 +22,16 @@ Then put `.todorc` in your home directory.
 };
 ```
 
+
 ## Usage
 
-Add TODO
+### Add TODO
 
 ```
 $ todo add buy-milk two-bottles
 ```
 
-Remove TODO
+### Remove TODO
 
 ```
 $ todo remove buy-milk
@@ -36,6 +42,13 @@ or you can abbreviate the title:
 ```
 $ todo remove milk  # `buy-milk` will be removed
 ```
+
+### List TODO
+
+```
+$ todo list
+```
+
 
 ## License
 MIT
