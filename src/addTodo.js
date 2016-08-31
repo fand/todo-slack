@@ -8,8 +8,9 @@ function addTodo (title, content) {
     content  : content,
   })
   .then(r => r.json())
-  .then((res) => {
-    console.log(res);
+  .then((r) => {
+    if (!r.ok) { throw r.error; }
+    console.log(`Added TODO: ${title} (${content})`);
   })
   .catch((e) => {
       console.error(e);
