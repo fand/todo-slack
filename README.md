@@ -6,14 +6,14 @@
 $ npm i -g @fand/todo-slack
 ```
 
-Then put `secret.js` in todo-slack's root directory.
+Then put `.todorc` in your home directory.
 
 ```javascript
-// secret.js
-module.exports = {
-  token    : '__YOUR_SLACK_API_TOKEN__',
-  user     : '__YOUR_SLACK_USER_ID__',  
-  channels : '#times_foo',
+// .todorc
+{
+  "token"    : "__YOUR_SLACK_API_TOKEN__",
+  "user"     : "__YOUR_SLACK_USER_ID__",
+  "channels" : "#__CHANNEL_NAME_TO_POST_",
 };
 ```
 
@@ -29,6 +29,12 @@ Remove TODO
 
 ```
 $ todo remove buy-milk
+```
+
+or you can abbreviate the title:
+
+```
+$ todo remove milk  # `buy-milk` will be removed
 ```
 
 ## License

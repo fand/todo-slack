@@ -1,7 +1,7 @@
 'use strict';
 var fetch  = require('isomorphic-fetch');
 var form   = require('./form');
-var config = require('../secret');
+var config = require('./config');
 
 function fetchSlack (endpoint, data) {
   return fetch(`https://slack.com/api/${endpoint}`, {
