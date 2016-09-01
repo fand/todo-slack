@@ -1,7 +1,7 @@
 {
   "name": "@fand/todo-slack",
   "description": "Todo app using Slack file upload API",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "fand <fand@gmork.in>",
   "bin": {
     "todo": "index.js"
