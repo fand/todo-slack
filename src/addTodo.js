@@ -3,6 +3,7 @@ var fetchSlack = require('./fetchSlack');
 var dedent = require('dedent');
 
 function addTodo (title, content) {
+  if (!content) { content = ' '; }
   fetchSlack('files.upload', {
     filetype : 'space',
     filename : title,
