@@ -3,7 +3,8 @@ var fetchSlack = require('./fetchSlack');
 var f2s = require('./f2s');
 var dedent = require('dedent');
 
-function listTodo (title = '') {
+function listTodo (title) {
+  if (!title) { title = ''; }
   fetchSlack('files.list', { types: 'spaces' })
   .then(r => r.json())
   .then((res) => {

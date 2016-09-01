@@ -20,11 +20,11 @@ function main (command, title, content) {
 
 function showUsage () {
     console.log(`
-        Usage:
-            todo add    title name
-            todo remove title
-            todo list
-    `);
+Usage:
+    todo add    title content
+    todo remove title
+    todo list
+    `.trim());
 }
 
-main(...[].slice.apply(process.argv, [2]));
+main(process.argv[2], process.argv[3], process.argv[4]);
